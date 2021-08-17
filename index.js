@@ -9,7 +9,7 @@ app.get("/", (req, res) => {
   res.send("working...");
 });
 
-app.post("/",(req,res)=>{
+app.get("/",(req,res)=>{
     console.log(req.body);
     res.send(req.body);
 })
