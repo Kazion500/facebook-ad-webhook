@@ -12,4 +12,4 @@ app.post("/",(req,res)=>{
     res.send(req.body);
 })
 
-app.listen(() => console.log("Backend Running on port" + PORT));
+app.listen(PORT,() => console.log("Backend Running on port" + PORT));
