@@ -30,7 +30,7 @@ app.get("/", async (req, res) => {
     ln,
   } = req.query;
   const PIXEL_ID = "452887915731270";
-  const TEST_EVENT_CODE = "TEST12907";
+  const TEST_EVENT_CODE = "TEST87369";
   // const ACCESS_TOKEN =
   //   "EAAQo56QnFoMBAKS6uDBwwCcrln2srlXThP7j7FibN8uJeKHEnFjUCm0BquB6DhkN36daVMH7LmNhZB15N9g2he708xv7RUUDVmbvkvXK5ZCs8g9ZAssGI943cI8Mqt70VCqUsZAHXLZA7sLmiLAPKxHRQfcTl58XYE6ZCjfHZBZCIkZCdeXxZAW7gS7LSL3vUIZC94ZD";
   const ACCESS_TOKEN =
@@ -49,7 +49,7 @@ app.get("/", async (req, res) => {
           fn: createHash(fn),
           ln: createHash(ln),
           ph: createHash(ph),
-          fbc: fblicd != "" ? fblicd : null,
+          // fbc: fblicd != "" ? fblicd : null,
           // fbp: "fb.1.1558571054389.1098115397",
         },
       },
