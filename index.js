@@ -16,19 +16,38 @@ function createHash(value) {
   return hash;
 }
 
+function toTimestamp(date){
+  let d = new Date(date);
+  return (
+    new Date(
+      Date.UTC(
+        d.getFullYear(),
+        d.getMonth(),
+        d.getHours(),
+        d.getSeconds(),
+        d.getMinutes(),
+        d.getDate()
+      )
+    ).getTime() / 1000
+  );
+}
+
+
 app.get("/", async (req, res) => {
   const {
     em,
     eventID,
-    eventType,
+    eventtype,
     userAgent,
     fblicd,
     source,
     timestamp,
+    eventDate,
     ph,
     fn,
     ln,
   } = req.query;
+console.log(toTimestamp(eventDate));
   const PIXEL_ID = "452887915731270";
   const TEST_EVENT_CODE = "TEST87369";
   // const ACCESS_TOKEN =
@@ -39,8 +58,8 @@ app.get("/", async (req, res) => {
   const data = JSON.stringify({
     data: [
       {
-        event_name: eventType,
-        event_time: timestamp,
+        event_name: eventtype,
+        event_time: eventID,
         event_id: "event.id." + eventID,
         event_source_url: source,
         user_data: {
