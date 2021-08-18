@@ -17,8 +17,18 @@ function createHash(value) {
 }
 
 app.get("/", async (req, res) => {
-  const { email, eventDate, eventID, eventType, fblicd, source, phone } =
-    req.query;
+  const {
+    em,
+    eventID,
+    eventType,
+    userAgent,
+    fblicd,
+    source,
+    timestamp,
+    ph,
+    fn,
+    ln,
+  } = req.query;
   const PIXEL_ID = "452887915731270";
   const TEST_EVENT_CODE = "TEST12907";
   // const ACCESS_TOKEN =
@@ -29,18 +39,16 @@ app.get("/", async (req, res) => {
     data: [
       {
         event_name: eventType,
-        event_time: eventID,
+        event_time: timestamp,
         event_id: "event.id." + eventID,
         event_source_url: source,
         user_data: {
-          // client_ip_address: "192.19.9.9",
-          client_user_agent:
-            "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:91.0) Gecko/20100101 Firefox/91.0",
-          em: createHash(email),
-          fn: createHash("test"),
-          ln: createHash("test"),
-          ph: createHash(phone),
-          // fbc: fblicd,
+          client_user_agent: userAgent,
+          em: createHash(em),
+          fn: createHash(fn),
+          ln: createHash(ln),
+          ph: createHash(ph),
+          fbc: fblicd,
           // fbp: "fb.1.1558571054389.1098115397",
         },
       },
