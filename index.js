@@ -21,8 +21,10 @@ app.get("/", async (req, res) => {
     req.query;
   const PIXEL_ID = "452887915731270";
   const TEST_EVENT_CODE = "TEST12907";
+  // const ACCESS_TOKEN =
+  //   "EAAQo56QnFoMBAKS6uDBwwCcrln2srlXThP7j7FibN8uJeKHEnFjUCm0BquB6DhkN36daVMH7LmNhZB15N9g2he708xv7RUUDVmbvkvXK5ZCs8g9ZAssGI943cI8Mqt70VCqUsZAHXLZA7sLmiLAPKxHRQfcTl58XYE6ZCjfHZBZCIkZCdeXxZAW7gS7LSL3vUIZC94ZD";
   const ACCESS_TOKEN =
-    "EAAQo56QnFoMBAKS6uDBwwCcrln2srlXThP7j7FibN8uJeKHEnFjUCm0BquB6DhkN36daVMH7LmNhZB15N9g2he708xv7RUUDVmbvkvXK5ZCs8g9ZAssGI943cI8Mqt70VCqUsZAHXLZA7sLmiLAPKxHRQfcTl58XYE6ZCjfHZBZCIkZCdeXxZAW7gS7LSL3vUIZC94ZD";
+    "EAAQo56QnFoMBAI29T6Y19rMJ4TdqVJsF0bnDexv24mmw7N5YzNbPEeVXG7m5MCZAy0Xm8s23ZCZBdyyHtQ5VyGHIE5qWT7wBTkZCjZCoZCMHUiDy6AjgEtNuthBBtYeMB6jr4DwZCDqdjCxGgpeN8JrPFkiFdZBfsdybzTFZCnwZBXGODxr1yZBF2OVooZAHJrKGKFkZD";
   const data = JSON.stringify({
     data: [
       {
@@ -31,12 +33,14 @@ app.get("/", async (req, res) => {
         event_id: "event.id." + eventID,
         event_source_url: source,
         user_data: {
-          //   client_ip_address: "192.19.9.9",
-          //   client_user_agent: "test ua",
+          // client_ip_address: "192.19.9.9",
+          client_user_agent:
+            "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:91.0) Gecko/20100101 Firefox/91.0",
           em: createHash(email),
-
+          fn: createHash("test"),
+          ln: createHash("test"),
           ph: createHash(phone),
-          fbc: fblicd,
+          // fbc: fblicd,
           // fbp: "fb.1.1558571054389.1098115397",
         },
       },
