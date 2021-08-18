@@ -16,20 +16,8 @@ function createHash(value) {
   return hash;
 }
 
-function toTimestamp(date){
-  let d = new Date(date);
-  return (
-    new Date(
-      Date.UTC(
-        d.getFullYear(),
-        d.getMonth(),
-        d.getHours(),
-        d.getSeconds(),
-        d.getMinutes(),
-        d.getDate()
-      )
-    ).getTime() / 1000
-  );
+function toTimestamp(){
+  return Math.floor(Date.now() / 1000);
 }
 
 
@@ -48,6 +36,7 @@ app.get("/", async (req, res) => {
     ln,
   } = req.query;
 console.log(toTimestamp(eventDate));
+console.log(eventDate);
   const PIXEL_ID = "452887915731270";
   const TEST_EVENT_CODE = "TEST87369";
   // const ACCESS_TOKEN =
