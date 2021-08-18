@@ -40,7 +40,7 @@ app.get("/", async (req, res) => {
       {
         event_name: eventType,
         event_time: timestamp,
-        event_id: "event.id." + eventID,
+        event_id: "event.id." + Date.now(),
         event_source_url: source,
         user_data: {
           client_user_agent: userAgent,
@@ -48,7 +48,7 @@ app.get("/", async (req, res) => {
           fn: createHash(fn),
           ln: createHash(ln),
           ph: createHash(ph),
-          fbc: fblicd,
+          // fbc: fblicd,
           // fbp: "fb.1.1558571054389.1098115397",
         },
       },
