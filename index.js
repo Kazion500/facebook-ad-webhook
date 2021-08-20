@@ -2,6 +2,7 @@ const express = require("express");
 const cors = require("cors");
 const crypto = require("crypto");
 const { default: axios } = require("axios");
+const moment = require("moment");
 const PORT = process.env.PORT || 5000;
 const app = express();
 app.use(express.json());
@@ -16,10 +17,29 @@ function createHash(value) {
   return hash;
 }
 
-function toTimestamp(){
-  return Math.floor(Date.now() / 1000);
+function isOlderThanSevenDays(eventDate) {
+  let date = new Date(eventDate);
+  let days = [];
+  let eventD = moment(eventDate);
+  for (i = 0; i < 7; i++) {
+    let day = eventD.subtract(i, "days");
+    console.log(day.format("d"));
+    days = day.format("d")
+  }
+
+  console.log(days);
+  
+  if (days.length > 7) {
+    return "Add";
+  } else {
+    return "Dont";
+  }
 }
 
+
+
+console.log(isOlderThanSevenDays("2021-08-20T08:41:42.117Z"));
+// console.log(days);
 
 app.get("/", async (req, res) => {
   const {
@@ -35,10 +55,9 @@ app.get("/", async (req, res) => {
     fn,
     ln,
   } = req.query;
-console.log(toTimestamp(eventDate));
-console.log(eventDate);
+
   const PIXEL_ID = "452887915731270";
-  const TEST_EVENT_CODE = "TEST87369";
+  const TEST_EVENT_CODE = "TEST6765";
   // const ACCESS_TOKEN =
   //   "EAAQo56QnFoMBAKS6uDBwwCcrln2srlXThP7j7FibN8uJeKHEnFjUCm0BquB6DhkN36daVMH7LmNhZB15N9g2he708xv7RUUDVmbvkvXK5ZCs8g9ZAssGI943cI8Mqt70VCqUsZAHXLZA7sLmiLAPKxHRQfcTl58XYE6ZCjfHZBZCIkZCdeXxZAW7gS7LSL3vUIZC94ZD";
   const ACCESS_TOKEN =
