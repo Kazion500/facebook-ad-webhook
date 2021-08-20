@@ -17,24 +17,20 @@ function createHash(value) {
   return hash;
 }
 
-function isOlderThanSevenDays(eventDate) {
-  let date = new Date(eventDate);
-  let days = [];
-  let eventD = moment(eventDate);
-  for (i = 0; i < 7; i++) {
-    let day = eventD.subtract(i, "days");
-    console.log(day.format("d"));
-    days = day.format("d")
-  }
+function isOlderThanSevenDays(timestamp) {
+  // To set two dates to two variables
+  var date1 = new Date("06/30/2021");
+  var date2 = new Date("07/30/2021");
 
-  console.log(days);
-  
-  if (days.length > 7) {
-    return "Add";
-  } else {
-    return "Dont";
-  }
+  // To calculate the time difference of two dates
+  var Difference_In_Time = date2.getTime() - date1.getTime();
+
+  // To calculate the no. of days between two dates
+  var Difference_In_Days = Difference_In_Time / (1000 * 3600 * 24);
+  return Difference_In_Days
 }
+
+console.log(isOlderThanSevenDays());
 
 
 
@@ -56,6 +52,8 @@ app.get("/", async (req, res) => {
     ln,
   } = req.query;
 
+  console.log(req.query);
+
   const PIXEL_ID = "452887915731270";
   const TEST_EVENT_CODE = "TEST6765";
   // const ACCESS_TOKEN =
@@ -67,7 +65,7 @@ app.get("/", async (req, res) => {
     data: [
       {
         event_name: eventtype,
-        event_time: eventID,
+        event_time: timestamp,
         event_id: "event.id." + eventID,
         event_source_url: source,
         user_data: {
@@ -76,7 +74,7 @@ app.get("/", async (req, res) => {
           fn: createHash(fn),
           ln: createHash(ln),
           ph: createHash(ph),
-          // fbc: fblicd != "" ? fblicd : null,
+          fbc: fblicd != "" ? fblicd : null,
           // fbp: "fb.1.1558571054389.1098115397",
         },
       },
