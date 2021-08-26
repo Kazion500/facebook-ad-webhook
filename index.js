@@ -55,7 +55,7 @@ app.get("/", async (req, res) => {
   console.log(req.query);
 
   const PIXEL_ID = "452887915731270";
-  const TEST_EVENT_CODE = "TEST8382";
+  const TEST_EVENT_CODE = "TEST94706";
   // const ACCESS_TOKEN =
   //   "EAAQo56QnFoMBAKS6uDBwwCcrln2srlXThP7j7FibN8uJeKHEnFjUCm0BquB6DhkN36daVMH7LmNhZB15N9g2he708xv7RUUDVmbvkvXK5ZCs8g9ZAssGI943cI8Mqt70VCqUsZAHXLZA7sLmiLAPKxHRQfcTl58XYE6ZCjfHZBZCIkZCdeXxZAW7gS7LSL3vUIZC94ZD";
   const ACCESS_TOKEN =
