@@ -89,6 +89,7 @@ app.get("/", async (req, res) => {
         "Content-Type": "application/json",
       },
     });
+    console.log(response.data);
     return res.json(response.data);
   } catch (error) {
     res.json(error.response.data);
