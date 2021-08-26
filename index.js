@@ -79,7 +79,7 @@ app.get("/", async (req, res) => {
         },
       },
     ],
-    test_event_code: TEST_EVENT_CODE,
+    // test_event_code: TEST_EVENT_CODE,
   });
 
   try {
