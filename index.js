@@ -66,7 +66,7 @@ app.get("/", async (req, res) => {
       {
         event_name: eventtype,
         event_time: timestamp,
-        event_id: "event.id." + eventID,
+        event_id: eventID,
         event_source_url: source,
         user_data: {
           client_user_agent: userAgent,
